@@ -2,12 +2,13 @@ import React from "react";
 import ListingCard from "./ListingCard";
 
 function ListingsContainer({list}) {
-  const cardList = list.map((listing) => {
+  const cardList = list.map((listObj) => {
     return <ListingCard 
-    id={listing.id} 
-    description={listing.description} 
-    image={listing.image} 
-    location={listing.location}
+    key={listObj.id}
+    id={listObj.id} 
+    description={listObj.description} 
+    image={listObj.image} 
+    location={listObj.location}
      />
   })
   console.log(cardList)
