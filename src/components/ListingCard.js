@@ -4,10 +4,10 @@ function ListingCard({description, image, location}) {
   const [isLiked, setIsLiked] = useState(false)
 
   function handleClick() {
-    setIsLiked(isLiked => !isLiked)
+    setIsLiked((isLiked) => !isLiked)
   }
 
-  // const appClass = isLiked ? "App dark" : "App light"
+  //const appClass = isLiked ? "emoji-button favorite active" : "emoji-button favorite"
 
 
   return (
@@ -17,7 +17,7 @@ function ListingCard({description, image, location}) {
         <img src={image} alt={description} />
       </div>
       <div className="details">
-        {true ? (
+        {isLiked ? (
           <button className="emoji-button favorite active" onClick={handleClick}>★</button>
         ) : (
           <button className="emoji-button favorite" onClick={handleClick}>☆</button>
