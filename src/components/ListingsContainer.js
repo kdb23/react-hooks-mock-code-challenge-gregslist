@@ -2,6 +2,16 @@ import React from "react";
 import ListingCard from "./ListingCard";
 
 function ListingsContainer({list}) {
+
+  function handleDeleteItem() {
+    fetch(`http://localhost:6001/listings/${list.id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => console.log("deleted"));
+  }
+
+
   const cardList = list.map((listObj) => {
     return <ListingCard 
     key={listObj.id}
@@ -9,6 +19,7 @@ function ListingsContainer({list}) {
     description={listObj.description} 
     image={listObj.image} 
     location={listObj.location}
+    handleDeleteItem={handleDeleteItem}
      />
   })
   console.log(cardList)

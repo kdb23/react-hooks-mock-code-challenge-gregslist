@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 
-function ListingCard({description, image, location}) {
+function ListingCard({description, image, location, handleDeleteItem}) {
   const [isLiked, setIsLiked] = useState(false)
 
   function handleClick() {
     setIsLiked((isLiked) => !isLiked)
   }
 
-  //const appClass = isLiked ? "emoji-button favorite active" : "emoji-button favorite"
+ 
 
 
   return (
@@ -24,7 +24,7 @@ function ListingCard({description, image, location}) {
         )}
         <strong>{description}</strong>
         <span> · {location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button className="emoji-button delete" onClick={handleDeleteItem}>🗑</button>
       </div>
     </li>
   );
